@@ -33,5 +33,7 @@ module.exports = {
     "object-curly-spacing": ["error", "always"],
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
+    "arrow-spacing": ["error", { before: true, after: true }],
+    "arrow-parens": ["error", "always"],
   },
 };
