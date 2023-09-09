@@ -1,3 +1,9 @@
+import { Profile } from "../../components/Profile";
+
 export function Blog() {
-  return <h1>blog</h1>;
+  return (
+    <div>
+      <Profile />
+    </div>
+  );
 }
