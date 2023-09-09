@@ -1,3 +1,5 @@
+import { api } from "../../lib/api";
+import { useEffect, useState } from "react";
 import {
   ProfileBiography,
   ProfileContainer,
@@ -5,40 +7,57 @@ import {
   ProfileInfo,
 } from "./style";
 
-import avatar from "../../assets/avatar.png";
 import iconGoLink from "../../assets/icon-go-link.svg";
 import iconGithub from "../../assets/icon-github.svg";
-import iconCompany from "../../assets/icon-company.svg";
 import iconUsers from "../../assets/icon-users.svg";
+import iconBook from "../../assets/icon-book.svg";
+
+interface User {
+  name: string;
+  login: string;
+  avatar_url: string;
+  bio: string;
+  html_url: string;
+  followers: number;
+  public_repos: number;
+}
 
 export function Profile() {
+  const [user, setUser] = useState<User>({} as User);
+
+  function fetchUser() {
+    api.get("users/schayene").then((response) => {
+      setUser(response.data);
+    });
+  }
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
   return (
     <ProfileContainer>
-      <img src={avatar} alt="" />
+      <img src={user.avatar_url} alt="" />
 
       <ProfileContent>
         <ProfileBiography>
-          <h1>Cameron Williamson</h1>
-          <a href="#">
+          <h1>{user.name}</h1>
+          <a href={user.html_url} rel="noreferrer" target="_blank">
             Github
             <img src={iconGoLink} alt="" />
           </a>
-          <p>
-            Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-            viverra massa quam dignissim aenean malesuada suscipit. Nunc,
-            volutpat pulvinar vel mass.
-          </p>
+          <p>{user.bio}</p>
         </ProfileBiography>
 
         <ProfileInfo>
           <span>
-            <img src={iconGithub} alt="" /> cameronwll
+            <img src={iconGithub} alt="" /> {user.login}
           </span>
           <span>
-            <img src={iconCompany} alt="" /> Rocketseat
+            <img src={iconUsers} alt="" /> {user.followers} seguidores
           </span>
           <span>
-            <img src={iconUsers} alt="" /> 32 seguidores
+            <img src={iconBook} alt="" /> {user.public_repos} repositórios
           </span>
         </ProfileInfo>
       </ProfileContent>
