@@ -44,7 +44,11 @@ export function Issue() {
 
   function fetchIssue() {
     api
-      .get("repos/schayene/ignite-github-blog/issues/" + params.number)
+      // .get("repos/schayene/ignite-github-blog/issues/" + params.number)
+      .get(
+        "repos/rocketseat-education/reactjs-github-blog-challenge/issues/" +
+          params.number
+      )
       .then((response) => {
         setIssue(response.data);
       });
