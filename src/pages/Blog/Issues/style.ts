@@ -50,4 +50,8 @@ export const IssueCard = styled.div`
     border-color: ${(props) => props.theme["base-label"]};
     transition: border-color 0.2s;
   }
+
+  @media (max-width: 560px) {
+    padding: 1.5rem;
+  }
 `;

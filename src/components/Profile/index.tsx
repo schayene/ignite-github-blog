@@ -7,10 +7,10 @@ import {
   ProfileInfo,
 } from "./style";
 
-import iconGoLink from "../../assets/icon-go-link.svg";
-import iconGithub from "../../assets/icon-github.svg";
-import iconUsers from "../../assets/icon-users.svg";
-import iconBook from "../../assets/icon-book.svg";
+import iconGo from "../../assets/go.svg";
+import iconGithub from "../../assets/github.svg";
+import iconUsers from "../../assets/users.svg";
+import iconBook from "../../assets/book.svg";
 
 interface User {
   name: string;
@@ -41,10 +41,13 @@ export function Profile() {
 
       <ProfileContent>
         <ProfileBiography>
-          <h1>{user.name}</h1>
+          <h1>
+            <img src={user.avatar_url} alt="" />
+            {user.name}
+          </h1>
           <a href={user.html_url} rel="noreferrer" target="_blank">
             Github
-            <img src={iconGoLink} alt="" />
+            <img src={iconGo} alt="" />
           </a>
           <p>{user.bio}</p>
         </ProfileBiography>
