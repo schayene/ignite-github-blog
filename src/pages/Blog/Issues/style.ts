@@ -30,8 +30,9 @@ export const IssueCard = styled.div`
 
     span {
       padding-block: 0.3rem;
-      min-width: 3.5rem;
+      min-width: 4rem;
       font-size: 0.875rem;
+      text-align: right;
       color: ${(props) => props.theme["base-span"]};
     }
   }
