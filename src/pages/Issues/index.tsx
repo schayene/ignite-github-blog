@@ -4,7 +4,7 @@ import { api } from "../../lib/api";
 import { formatDistanceToNow } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
 import { useNavigate } from "react-router-dom";
-import { Profile } from "../../components/Profile";
+import { Profile } from "./components/Profile";
 
 interface Issue {
   number: number;
@@ -40,7 +40,7 @@ export function Issues() {
   return (
     <>
       <Profile />
-      
+
       <IssuesContainer>
         {issues.map((issue) => (
           <IssueCard

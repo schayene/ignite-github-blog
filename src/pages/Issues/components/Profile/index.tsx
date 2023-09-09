@@ -1,4 +1,4 @@
-import { api } from "../../lib/api";
+import { api } from "../../../../lib/api";
 import { useEffect, useState } from "react";
 import {
   ProfileBiography,
@@ -7,10 +7,10 @@ import {
   ProfileInfo,
 } from "./style";
 
-import iconGo from "../../assets/go.svg";
-import iconGithub from "../../assets/github.svg";
-import iconUsers from "../../assets/users.svg";
-import iconBook from "../../assets/book.svg";
+import iconGo from "../../../../assets/go.svg";
+import iconGithub from "../../../../assets/github.svg";
+import iconUsers from "../../../../assets/users.svg";
+import iconBook from "../../../../assets/book.svg";
 
 interface User {
   name: string;

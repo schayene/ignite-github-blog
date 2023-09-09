@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {
   BaseCardHeader,
   BaseCardInfo,
-} from "../../layouts/DefaultLayout/style";
+} from "../../../../layouts/DefaultLayout/style";
 
 export const ProfileContainer = styled(BaseCardHeader)`
   display: grid;
