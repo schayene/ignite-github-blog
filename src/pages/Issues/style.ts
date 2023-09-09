@@ -22,7 +22,7 @@ export const IssueCard = styled.div`
     display: flex;
     justify-content: space-between;
 
-    h2 {
+    h3 {
       font-size: 1.25rem;
       font-weight: bold;
       color: ${(props) => props.theme["base-title"]};

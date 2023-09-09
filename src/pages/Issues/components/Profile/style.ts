@@ -9,6 +9,8 @@ export const ProfileContainer = styled(BaseCardHeader)`
   grid-template-columns: 9.25rem 1fr;
   grid-gap: 2rem;
 
+  margin-bottom: 4.5rem;
+
   > img {
     width: 100%;
     max-width: 9.25rem;

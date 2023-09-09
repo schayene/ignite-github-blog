@@ -18,6 +18,11 @@ export const GlobalStyle = createGlobalStyle`
     font: 400 1rem/1.6 "Nunito", sans-serif;
   }
 
+  :focus {
+    outline: none;
+    box-shadow: 0 0 0 2px ${(props) => props.theme.blue};
+  }
+
   @media (max-width: 560px) {
     html {
       font-size: 87%;

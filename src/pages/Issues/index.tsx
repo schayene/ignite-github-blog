@@ -5,6 +5,7 @@ import { formatDistanceToNow } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
 import { useNavigate } from "react-router-dom";
 import { Profile } from "./components/Profile";
+import { SearchForm } from "./components/SearchForm";
 
 interface Issue {
   number: number;
@@ -40,6 +41,7 @@ export function Issues() {
   return (
     <>
       <Profile />
+      <SearchForm />
 
       <IssuesContainer>
         {issues.map((issue) => (
@@ -48,7 +50,7 @@ export function Issues() {
             onClick={() => navigate("issue/" + issue.number)}
           >
             <header>
-              <h2>{issue.title}</h2>
+              <h3>{issue.title}</h3>
               <span>
                 {formatDistanceToNow(new Date(issue.created_at), {
                   addSuffix: true,
