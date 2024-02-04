@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useState } from "react";
+import { ReactNode, createContext, useCallback, useState } from "react";
 import { api } from "../lib/api";
 
 interface Issue {
@@ -22,15 +22,14 @@ export const IssuesContext = createContext({} as IssuesContextType);
 export function IssuesProvider({ children }: IssuesProviderProps) {
   const [issues, setIssues] = useState<Issue[]>([]);
 
-  async function fetchIssues(query?: string) {
+  const fetchIssues = useCallback(async (query?: string) => {
     let queryParam = "";
 
     if (query) {
       queryParam = query + " ";
     }
 
-    // queryParam += "repo:schayene/ignite-github-blog";
-    queryParam += "repo:rocketseat-education/reactjs-github-blog-challenge";
+    queryParam += "repo:schayene/ignite-github-blog";
 
     const response = await api.get("search/issues", {
       params: {
@@ -41,7 +40,7 @@ export function IssuesProvider({ children }: IssuesProviderProps) {
     });
 
     setIssues(response.data.items);
-  }
+  }, []);
 
   return (
     <IssuesContext.Provider value={{ issues, fetchIssues }}>
